@@ -13,19 +13,21 @@ const register = async (req, res) => {
         return res.status(404).json({ "message": "username: " + username + " already exists" })
     }
 
-    const newPwd = bcrypt.hash(pwd, saltRounds)
+    const newPwd = await bcrypt.hash(pwd, saltRounds)
         .then((hash) => {
             console.log("hash " + hash);
+            return hash
         }).catch((err) => {
             console.error(err);
         })
-
+    console.log("pwd " + newPwd);
     const newUser = new user({
         username: username,
         pwd: newPwd
     })
 
     newUser.save();
+    res.json('added to users')
 }
 
 const login = async (req, res) => {

@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 
 
 app.get("/", (req, res) => {
-    return res.sendFile(path.join(__dirname, './index.html'))
+    return res.sendFile(path.join(__dirname, './login.html'))
 })
 
 app.use("/user", userRouter)

@@ -7,8 +7,8 @@
     <title>Form</title>
 
     <!--Stylesheet-->
-    <link rel="stylesheet" href="public/styleUser.css" />
-    <script type="module" src="public/jsUSer/display.js"></script>
+    <link rel="stylesheet" href="styleUser.css" />
+    <script type="module" src="jsUSer/main.js"></script>
   </head>
   <body>
     <div class="background">
@@ -16,7 +16,7 @@
       <div class="shape"></div>
     </div>
     <div id="loginContainer">
-      <form id="loginForm" name="loginForm" method="post" action="user/login">
+      <form id="loginForm" name="loginForm">
         <h3>Login Here</h3>
 
         <label>Username</label>
@@ -25,19 +25,14 @@
         <label>Password</label>
         <input type="password" placeholder="Password" name="password" />
 
-        <button type="submit">Log In</button>
+        <button type="submit" id="submitlogin">Log In</button>
       </form>
       <div class="social">
         <button class="go" id="registerBtn">register</button>
       </div>
     </div>
     <div id="registerContainer" class="hidden">
-      <form
-        id="registerForm"
-        name="registerForm"
-        method="post"
-        action="user/register"
-      >
+      <form id="registerForm" name="registerForm">
         <h3>Register Here</h3>
 
         <label>Username</label>
@@ -48,7 +43,7 @@
         <label>Renter Password</label>
         <input type="password" placeholder="Password" name="CheckPassword" />
 
-        <button type="submit">Register</button>
+        <button type="submit" id="submitregister">Register</button>
       </form>
       <div class="social">
         <button class="go" id="loginBtn" type="submit">login</button>
