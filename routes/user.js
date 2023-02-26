@@ -11,15 +11,6 @@ route.get("/logout", (req, res) => {
     req.session.destroy();
     res.send();
 })
-route.get("/isConnected",async (req,res)=>{
-    if(!req.session.isConnected)
-        res.json({isConnected:false})
-    else
-        {
-          let user =   await User.findById(req.session.userId)
-          res.json({isConnected:true,name:user.login})
-        }
-})
 route.get("/home", (req, res) => {
     res.redirect("/joke/")
 })
