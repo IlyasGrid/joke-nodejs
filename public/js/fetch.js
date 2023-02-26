@@ -20,7 +20,7 @@ const generateJoke = async () => {
     })
     const joke = await data.json();
     const { id, value } = joke;
-    console.log("id" +id +"joke"+value);
+    console.log("id: " + id + "   \n joke: " + value);
 
     return joke;
 }

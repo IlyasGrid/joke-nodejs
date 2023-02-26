@@ -1,7 +1,7 @@
 import { displayForm, hideForm } from './display.js';
 import { generateJoke, showAlljokes } from './fetch.js';
 import { $ } from './config.js';
-import { createJoke } from './utils.js';
+import { changeBtnColorErr, createJoke } from './utils.js';
 
 
 showAlljokes();
@@ -19,6 +19,9 @@ $("addBtn").addEventListener('click', () => {
     }
 })
 $("submitBtn").addEventListener('click', () => {
+    if ($("authorInput").value == "" || $("jokeInput").value == "") {
+        changeBtnColorErr();
+    }
     createJoke();
     hideForm();
 })
