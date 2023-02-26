@@ -15,7 +15,9 @@ $("submitBtn").addEventListener('click', () => {
     hideForm();
 })
 $("generateBtn").addEventListener('click', async () => {
+    $("authorInput").value = ""
+    $("jokeInput").value = ""
     const joke = await generateJoke();
-    $("authorInput").value = "user" + joke.id
+    $("authorInput").value = "api joke"
     $("jokeInput").value = joke.value
 })
