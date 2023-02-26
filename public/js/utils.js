@@ -27,7 +27,7 @@ const getJoke = () => {
     return joke;
 }
 
-const createJoke =()=>{
+const createJoke = () => {
     postJoke(getJoke())
 }
-export { createCards, getJoke,createJoke };
+export { createCards, getJoke, createJoke };

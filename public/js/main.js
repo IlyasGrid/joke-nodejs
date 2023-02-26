@@ -1,4 +1,4 @@
-import { afficherForm, hideForm } from './affichage.js';
+import { displayForm, hideForm } from './display.js';
 import { generateJoke, showAlljokes } from './fetch.js';
 import { $ } from './config.js';
 import { createJoke } from './utils.js';
@@ -8,7 +8,15 @@ showAlljokes();
 
 
 $("addBtn").addEventListener('click', () => {
-    afficherForm();
+    if ($('form').classList.contains('hidden')) {
+        displayForm();
+        $("addBtn").innerHTML = "close form"
+    }
+    else if (!$('form').classList.contains('hidden')) {
+
+        hideForm();
+        $("addBtn").innerHTML = "add joke"
+    }
 })
 $("submitBtn").addEventListener('click', () => {
     createJoke();
