@@ -6,6 +6,7 @@ require('dotenv').config();
 const jokeRouter = require("./routes/joke")
 const cors = require("cors");
 const path = require('path');
+const session = require('express-')
 
 
 const port = process.env.PORT || 9090;
@@ -16,6 +17,16 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true
+    }
+}))
+
+
 
 app.get("/", (req, res) => {
     return res.sendFile(path.join(__dirname, './index.html'))
