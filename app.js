@@ -7,7 +7,7 @@ const jokeRouter = require("./routes/joke")
 const userRouter = require("./routes/user")
 const cors = require("cors");
 const path = require('path');
-const session = require('express-');
+const session = require('express-session');
 const { isConnected } = require('./middlewares/checkConnected');
 
 const port = process.env.PORT || 9090;
