@@ -35,7 +35,7 @@ const showAuthorjokes = async (author) => {
 }
 const postJoke = async (joke) => {
 
-    const data = await fetch('/joke', {
+    const response = await fetch('/joke', {
         method: "POST",
         mode: "cors",
         headers: {
