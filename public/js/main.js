@@ -1,4 +1,4 @@
-import { displayForm, hideForm } from './display.js';
+import { displayForm, hideForm } from './displayHandler.js';
 import { generateJoke, showAlljokes } from './fetch.js';
 import { $ } from './config.js';
 import { changeBtnColorErr, createJoke } from './utils.js';

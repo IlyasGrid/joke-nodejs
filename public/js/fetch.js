@@ -20,7 +20,7 @@ const generateJoke = async () => {
     })
     const joke = await data.json();
     const { id, value } = joke;
-    console.log("id: " + id + "   \n joke: " + value);
+    console.log("-id: " + id + "   \n-joke: " + value);
 
     return joke;
 }
@@ -47,4 +47,12 @@ const postJoke = async (joke) => {
     return response.json();
 }
 
-export { showAlljokes, showAuthorjokes, postJoke, generateJoke }
+const deleteJoke = async (id) => {
+    const data = await fetch(urlApi + "joke/" + id, { method: "delete" });
+    const deletedJoke = await data.json();
+
+    console.log(deletedJoke);
+    return;
+}
+
+export { showAlljokes, showAuthorjokes, postJoke, generateJoke, deleteJoke }

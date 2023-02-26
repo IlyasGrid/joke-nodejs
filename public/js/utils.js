@@ -1,4 +1,4 @@
-import { $ } from "./config.js";
+import { $,urlApi } from "./config.js";
 import { postJoke } from "./fetch.js";
 
 
@@ -12,21 +12,38 @@ const changeBtnColorErr = () => {
 };
 
 const createCards = (data) => {
+    const divCard = document.createElement('div');
     const div = document.createElement('div');
     const h2 = document.createElement('h2');
     const p = document.createElement('p');
     const a = document.createElement('a');
-    div.classList.add("card");
-    const { author, joke } = data;
-    h2.innerText = author + "";
+    const button = document.createElement('button');
 
+    divCard.classList.add("card");
+
+    const { author, joke ,_id } = data;
+
+    h2.innerText = author + "";
     p.innerText = joke + "";
+    button.innerText = "delete"
+
 
     a.appendChild(h2)
     a.setAttribute('href', '/joke/' + author);
     div.appendChild(a)
     div.appendChild(p)
-    $("container").appendChild(div)
+    divCard.appendChild(div)
+    divCard.appendChild(button)
+
+    button.addEventListener('click', async () => {
+        const response = await fetch(urlApi + "joke/" + _id, { method: "DELETE" })
+        if (response.ok)
+            return divCard.remove();
+        alert("can't delete todo")
+    })
+
+    $("container").appendChild(divCard)
+
 }
 
 const getJoke = () => {
@@ -40,6 +57,8 @@ const getJoke = () => {
 
     return joke;
 }
+
+
 
 const createJoke = () => {
     postJoke(getJoke());

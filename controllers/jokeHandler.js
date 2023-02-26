@@ -1,4 +1,3 @@
-const joke = require("../models/joke");
 const Joke = require("../models/joke")
 
 const allJokes = async (req, res) => {
@@ -35,5 +34,21 @@ const addJoke = (req, res) => {
     return res.status(200).json({ "message": "hahahaha good one" })
 }
 
+const deleteJoke = async (req, res) => {
+    const { id } = req.params;
 
-module.exports = { addJoke, allJokes, authorJoke }
+    // let jokes = await Joke.find()
+
+    // let jokeToDelete = jokes.filter(element => element.id == id)
+    // console.log("jokeToDelete" + jokeToDelete);
+
+    // Joke.findOneAndRemove(jokeToDelete)
+    // res.send("joke deleted ")
+
+    const deletedJoke = await Joke.remove ({_id : id})
+    res.json(deletedJoke +" deteleted successfuly")
+
+}
+
+
+module.exports = { addJoke, allJokes, authorJoke, deleteJoke }
