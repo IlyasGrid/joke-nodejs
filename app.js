@@ -29,7 +29,7 @@ const start = async () => {
     }).catch((err) => {
         console.error(err);
     })
-    app.listen(port,"https://ilyasgrid.github.io/joke-nodejs/", () => {
+    app.listen(port, () => {
         console.log("listenning on port :" + port);
     })
 }
